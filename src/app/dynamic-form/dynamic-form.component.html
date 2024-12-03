@@ -1,0 +1,58 @@
+<div class="container mt-5">
+    <form [formGroup]="dynamicForm" (ngSubmit)="sendFormData()">
+        <div class="row">
+            <ng-container *ngFor="let conf of formConfig">
+                <ng-container [ngSwitch]="conf.type">
+                    <ng-container *ngSwitchCase="'text'">
+                        <div class="col-12 col-lg-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{conf.label}}</mat-label>
+                                <input matInput [formControlName]="conf.name">
+                            </mat-form-field>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'number'">
+                        <div class="col-12 col-lg-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{conf.label}}</mat-label>
+                                <input matInput type="number" [formControlName]="conf.name">
+                            </mat-form-field>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'switch'">
+                        <div class="col-12 col-lg-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{conf.label}}</mat-label>
+                                <input matInput type="number" [formControlName]="conf.name">
+                            </mat-form-field>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'combo'">
+                        <div class="col-12 col-lg-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{conf.label}}</mat-label>
+                                <input matInput type="number" [formControlName]="conf.name">
+                            </mat-form-field>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'textarea'">
+                        <div class="col-12 col-lg-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{conf.label}}</mat-label>
+                                <textarea matInput [formControlName]="conf.name"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </ng-container>
+
+                </ng-container>
+
+            </ng-container>
+            <div class="col-12">
+                <button type="submit" mat-raised-button color="primary">ارسال </button>
+            </div>
+        </div>
+    </form>
+</div>
